@@ -1,30 +1,39 @@
 from intermine.webservice import Service
-import pandas as pd
 
+with open('fastasArmCleaned.txt', 'r') as f:
+    lines = f.readlines()
+
+last = ""
+hash = {}
+for i in range(len(lines)):
+    if lines[i][0] == ">":
+        last = lines[i]
+    else:
+        if lines[i-1][0] == ">":
+            hash[last] = [lines[i]]
+        else:
+            hash[last].append(lines[i])
+
+print(hash)
+print(len(hash))
 
 service = Service("http://intermine.wormbase.org/tools/wormmine/service")
 
 
-query=service.new_query("Protein")
-query.add_constraint("organism.species","=","elegans")
-query.add_constraint("primaryIdentifier","=","CE00044")
-for row in query.rows():
-    print(row)
+for key in hash:
+    cleanProtein = key.split("\n")[0].split(">")[1]
+    print(cleanProtein)
+    query=service.new_query("Protein")
+    query.add_constraint("organism.species","=","elegans")
+    query.add_constraint("primaryIdentifier","=",cleanProtein)
+    for row in query.rows():
+        gene = row["symbol"].split(",")[0]
+        hash[key].insert(0,("#"+gene+"\n"))
+        print(cleanProtein,":","gene","->",gene)
 
+with open('proteinLinkedToGene.txt', 'w') as f:
+    for key in hash:
+        f.write(key)
+        for element in hash[key]:
+            f.write(element)
 
-# template = service.get_template('protein_cds_new')
-# print(template.constraint_dict)
-# template.add_constraint("Protein.primaryIdentifier","=","CE09876")
-# print(template.constraint_dict)
-#
-#
-# rows = template.rows(
-#     B = {"op": "=","path":"Protein.primaryIdentifier","value": "CE09876"}
-# )
-#
-# print(len(rows))
-# for row in rows:
-#     print(row)
-#
-# templates = service.templates
-# print(templates["protein_cds_new"])
