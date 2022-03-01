@@ -25,37 +25,12 @@ print(df)
 #CONVERT DATAFRAME TO EXCEL, COMMA SEPARATED, UNCOMMENT TO DO IT
 # df.to_csv(FILENAME)
 
-#
-# print(total[0])
-# ken=[]
-# for row in rows:
-#     print(row)
-#     if "KEN" in row["sequence.residues"]:
-#         ken.append(row)
-#
-# print(len(ken))
+#WRITE .TXT IN FASTA, UNCOMMENT TO DO IT
+# with open('fastas.txt', 'w') as f:
+#     for row in rows:
+#         f.write(">"+row["Protein.primaryIdentifier"]+"\n"+row["Protein.sequence.residues"]+"\n")
 
-# A = {"op": "=",
-#      "value": "Caenorhabditis elegans"}
-#
-# rows = template.rows(A)
-#
-# for row in rows:
-#     print(row["primaryIdentifier"])
 
-#TODO: 1
-#OBTAIN ALL PROTEIN SEQUENCES OF C.ELEGANS
-
-#TODO: 2
-#CONVERT THEM TO GPS-ARM MANAGEABLE DATA-STRUCTURE
-#(FASTA SEQUENCE LIKE THIS)
-#>PROTEIN NAME
-#PROTEIN SEQUENCE
-#>PROTEIN NAME 2
-#PROTEIN SEQUENCE
-
-#TODO: 3
-#FILTER THEM USING GPS-ARM ALGORITHM
 
 #TODO: 4
 #LINK THE POSITIVE PROTEINS TO CDS ; template = service.get_template('protein_cds_new')
