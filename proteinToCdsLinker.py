@@ -29,7 +29,7 @@ for key in hash:
     for row in query.rows():
         gene = row["symbol"].split(",")[0]
         hash[key].insert(0,("#"+gene+"\n"))
-        print(cleanProtein,":","gene","->",gene)
+
 
 with open('proteinLinkedToGene.txt', 'w') as f:
     for key in hash:
