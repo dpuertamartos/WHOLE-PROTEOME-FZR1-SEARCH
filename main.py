@@ -32,11 +32,4 @@ print(df)
 
 
 
-#TODO: 4
-#LINK THE POSITIVE PROTEINS TO CDS ; template = service.get_template('protein_cds_new')
 
-#TODO: 5
-#COMPARE TO GLD-1 POSITIVE
-
-#TODO: 5-B
-#COMPARE THEM TO GERMLINE EXPRESSION
