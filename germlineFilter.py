@@ -29,13 +29,13 @@ def createTextFromHash(hash, textname):
                 f.write(element)
 
 # create txt with all genes expressed in germline, uncomment to make it work
-# with open('germlineGenes.txt', 'w') as f:
+# with open('5a_germlineGenes.txt', 'w') as f:
 #     for row in rows:
 #         f.write(row["symbol"]+"\n")
 
 #create hash from proteinLinkedToGene(already passed through GPS-ARM)
 def createHash():
-    with open('proteinLinkedToGene.txt', 'r') as f:
+    with open('4_proteinLinkedToGene.txt', 'r') as f:
         lines = f.readlines()
 
     last = ""

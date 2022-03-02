@@ -1,6 +1,6 @@
 from intermine.webservice import Service
 
-with open('fastasArmCleaned.txt', 'r') as f:
+with open('3_fastasArmCleaned.txt', 'r') as f:
     lines = f.readlines()
 
 last = ""
@@ -31,7 +31,7 @@ for key in hash:
         hash[key].insert(0,("#"+gene+"\n"))
 
 
-with open('proteinLinkedToGene.txt', 'w') as f:
+with open('4_proteinLinkedToGene.txt', 'w') as f:
     for key in hash:
         f.write(key)
         for element in hash[key]:

@@ -26,7 +26,7 @@ print(df)
 # df.to_csv(FILENAME)
 
 #WRITE .TXT IN FASTA, UNCOMMENT TO DO IT
-# with open('fastas.txt', 'w') as f:
+# with open('1_fastas.txt', 'w') as f:
 #     for row in rows:
 #         f.write(">"+row["Protein.primaryIdentifier"]+"\n"+row["Protein.sequence.residues"]+"\n")
 
